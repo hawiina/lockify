@@ -114,3 +114,49 @@ function saveTodos() {
 // Initialize
 updateTimer();
 renderTodos();
+function updateTime() {
+  const now = new Date();
+  
+  // Time formatting (e.g., "2:45 PM")
+  const timeStr = now.toLocaleTimeString('en-US', { 
+    hour: 'numeric', 
+    minute: '2-digit',
+    hour12: true 
+  });
+  
+  // Date formatting (e.g., "Tuesday, May 21")
+  const dateStr = now.toLocaleDateString('en-US', { 
+    weekday: 'long', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  
+  document.getElementById('time').textContent = timeStr;
+  document.getElementById('date').textContent = dateStr;
+}
+
+// Update every second
+updateTime();
+setInterval(updateTime, 1000);
+
+const backgrounds = [
+  "url('snoopydesk.jpg')",
+  "url('jiji1.jpg')",
+  "url('miffy1.jpg')",
+  "url('snoopydesk1.jpg')",
+  "url('snoopydesk2.jpg')",
+  // For local images (place in extension folder):
+  // "url('bg1.jpg')", 
+  // "url('bg2.jpg')"
+];
+function setRandomBackground() {
+  const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.body.style.backgroundImage = randomBg;
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.transition = "background-image 0.5s ease";
+}
+
+// Run on page load
+window.onload = setRandomBackground;
