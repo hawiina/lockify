@@ -4,9 +4,10 @@
   "version": "1.0",
   "description": "Beautiful Pomodoro timer with to-do list",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "Pomodoro Timer"
   },
-  "permissions": ["alarms", "storage"],
+  "permissions": ["alarms", "storage", "notifications"],
   "background": {
     "service_worker": "background.js"
   }
