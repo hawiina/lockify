@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pomodoro New Tab</title>
+  <title>Pastel Productivity</title>
   <link rel="stylesheet" href="newtab.css">
 </head>
 <body>
   <div class="container">
+    <!-- Pomodoro Timer -->
     <div class="pomodoro">
       <div id="timer">25:00</div>
       <div class="controls">
         <button id="start">Start</button>
         <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
       </div>
     </div>
 
+    <!-- Todo List -->
     <div class="todo-list">
-      <input type="text" id="todo-input" placeholder="Add a task...">
-      <button id="add">Add</button>
-      <ul id="todos"></ul>
+      <input type="text" id="todo-input" placeholder="✏️ Add a task...">
+      <button id="add">➕ Add</button>
+      <div id="todos"></div>
     </div>
   </div>
   <script src="newtab.js"></script>

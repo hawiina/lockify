@@ -1,47 +1,121 @@
 body {
-  background: url('background.jpg') center/cover no-repeat;
-  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Short Stack', cursive;
   height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
 .container {
-  background: rgba(0, 0, 0, 0.5);  /* Translucent black */
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 20px;
   width: 80%;
   max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pomodoro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#timer {
+  font-size: 3.5rem;
+  margin: 20px 0;
+  color: #5a5a5a;
 }
 
 .todo-list {
   margin-top: 20px;
 }
 
-#todos {
-  list-style: none;
-  padding: 0;
+#todo-input {
+  width: 70%;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  font-family: inherit;
 }
 
-#todos li {
-  padding: 8px;
-  margin: 5px 0;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-}
-
-button {
-  background: #4CAF50;
-  color: white;
+/* Pastel buttons */
+.pastel-btn {
+  background: #a2d2ff;
+  color: #5a5a5a;
   border: none;
   padding: 8px 15px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pastel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+#add { background: #ffafcc; }
+#start { background: #bde0fe; }
+#pause { background: #cdb4db; }
+#reset { background: #ffd6a5; }
+
+/* Task items */
+.task-item {
+  background: white;
+  border-radius: 15px;
+  padding: 12px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.task-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #a2d2ff;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.task-checkbox:checked {
+  background: #a2d2ff;
+}
+
+.task-text {
+  flex-grow: 1;
+  color: #5a5a5a;
+}
+
+.task-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.task-notes {
+  display: none;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px dashed #a2d2ff;
+  font-family: inherit;
+}
+
+.task-notes.active {
+  display: block;
+}
+
+.delete-btn {
+  background: #ff6b6b !important;
+  color: white !important;
 }
