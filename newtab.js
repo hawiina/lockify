@@ -49,9 +49,9 @@ function renderTodos() {
       </span>
       <div class="task-actions">
         <button class="pastel-btn notes-btn" style="background: ${pastelColors[Math.floor(Math.random() * pastelColors.length)]}">
-          📝 Notes
+           Notes
         </button>
-        <button class="pastel-btn delete-btn">🗑️</button>
+        <button class="pastel-btn delete-btn"> delete </button>
       </div>
       <textarea class="task-notes" placeholder="Add notes...">${todo.notes || ''}</textarea>
     </div>
