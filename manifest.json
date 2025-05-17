@@ -3,7 +3,7 @@
   "name": "New Tab Pomodoro",
   "version": "1.0",
   "chrome_url_overrides": {
-    "newtab": "newtab.html"  // Magic line that replaces new tabs
+    "newtab": "newtab.html" 
   },
   "permissions": ["storage"],
   "icons": {
