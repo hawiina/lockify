@@ -9,14 +9,21 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 20px;
-  width: 80%;
-  max-width: 500px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  width: 350px; /* Fixed width */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
+
 
 .pomodoro {
   text-align: center;
@@ -29,8 +36,19 @@ body {
   color: #5a5a5a;
 }
 
+/* Todo list specific fixes */
 .todo-list {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+#todo-input {
+  width: calc(100% - 22px); /* Account for padding */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 #todo-input {
@@ -41,6 +59,15 @@ body {
   font-family: inherit;
   outline: none;
   transition: all 0.3s;
+}
+
+#add {
+  width: 100%;
+  padding: 10px;
+  background-color: #a2d2ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #todo-input:focus {
@@ -200,19 +227,16 @@ button:hover {
 }
 .current-time {
   text-align: center;
-  margin-bottom: 25px;
-  color: #5a5a5a;
+  margin: 15px 0;
 }
 
 #time {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 42px;
 }
 
 #date {
-  font-size: 1.2rem;
-  opacity: 0.8;
+  font-size: 16px;
+  color: #666;
 }
 .container {
   background: rgba(255, 255, 255, 0.85);
@@ -259,4 +283,37 @@ button:hover {
 .container.dragging {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transition: none;
+}
+.search-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  width: 80%;
+  max-width: 600px;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 2px solid #cdb4db;
+  border-radius: 25px 0 0 25px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background-color: #cdb4db;
+  color: white;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background-color: #b8a2cb;
 }
