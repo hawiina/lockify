@@ -177,36 +177,36 @@ function setRandomBackground() {
 // Run on page load
 window.onload = setRandomBackground;
 
-// Make Pomodoro Timer Draggable
-function makeDraggable() {
-  const pomodoro = document.querySelector('.pomodoro');
+// Make the entire container draggable
+function makeContainerDraggable() {
+  const container = document.querySelector('.container');
   
-  if (!pomodoro) return;
+  if (!container) return;
 
   let isDragging = false;
   let offsetX, offsetY;
 
   // Load saved position if exists
-  const savedPosition = localStorage.getItem('pomodoroPosition');
+  const savedPosition = localStorage.getItem('widgetPosition');
   if (savedPosition) {
     const { left, top } = JSON.parse(savedPosition);
-    pomodoro.style.left = left;
-    pomodoro.style.top = top;
-    pomodoro.style.transform = 'none'; // Remove centering transform
+    container.style.left = left;
+    container.style.top = top;
+    container.style.transform = 'none';
   }
 
-  pomodoro.addEventListener('mousedown', (e) => {
-    // Only respond to left mouse button
-    if (e.button !== 0) return;
+  container.addEventListener('mousedown', (e) => {
+    // Only respond to left mouse button on the container background
+    if (e.button !== 0 || e.target.closest('button, input, #todos')) return;
     
     isDragging = true;
-    const rect = pomodoro.getBoundingClientRect();
+    const rect = container.getBoundingClientRect();
     offsetX = e.clientX - rect.left;
     offsetY = e.clientY - rect.top;
     
-    pomodoro.style.zIndex = '1000';
-    pomodoro.style.transition = 'none'; // Disable transitions during drag
-    e.preventDefault(); // Prevent text selection
+    container.classList.add('dragging');
+    container.style.zIndex = '1000';
+    e.preventDefault();
   });
 
   document.addEventListener('mousemove', (e) => {
@@ -215,9 +215,9 @@ function makeDraggable() {
     const x = e.clientX - offsetX;
     const y = e.clientY - offsetY;
     
-    pomodoro.style.left = `${x}px`;
-    pomodoro.style.top = `${y}px`;
-    pomodoro.style.transform = 'none'; // Remove centering transform
+    container.style.left = `${x}px`;
+    container.style.top = `${y}px`;
+    container.style.transform = 'none';
   });
 
   document.addEventListener('mouseup', () => {
@@ -225,15 +225,15 @@ function makeDraggable() {
     isDragging = false;
     
     // Save position to localStorage
-    localStorage.setItem('pomodoroPosition', JSON.stringify({
-      left: pomodoro.style.left,
-      top: pomodoro.style.top
+    localStorage.setItem('widgetPosition', JSON.stringify({
+      left: container.style.left,
+      top: container.style.top
     }));
     
-    pomodoro.style.zIndex = '10';
-    pomodoro.style.transition = 'all 0.3s ease'; // Re-enable transitions
+    container.classList.remove('dragging');
+    container.style.zIndex = '10';
   });
 }
 
-// Call this after DOM is loaded
-document.addEventListener('DOMContentLoaded', makeDraggable);
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', makeContainerDraggable);

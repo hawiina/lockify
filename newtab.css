@@ -233,9 +233,8 @@ button:hover {
   user-select: none;
   -webkit-user-select: none;
 }
-
-/* Add these styles to make the pomodoro timer draggable */
-.pomodoro {
+/* Make the container draggable */
+.container {
   position: absolute;
   cursor: move;
   user-select: none;
@@ -244,14 +243,20 @@ button:hover {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  /* Your existing styles */
+  /* Your existing container styles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-/* Optional: Add this to make it obvious it's draggable */
-.pomodoro:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Visual feedback when dragging */
+.container.dragging {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: none;
 }
