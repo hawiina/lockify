@@ -1,0 +1,47 @@
+body {
+  background: url('background.jpg') center/cover no-repeat;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.5);  /* Translucent black */
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+#todos {
+  list-style: none;
+  padding: 0;
+}
+
+#todos li {
+  padding: 8px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}

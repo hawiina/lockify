@@ -1,14 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Aesthetic Pomodoro",
+  "name": "New Tab Pomodoro",
   "version": "1.0",
-  "description": "Beautiful Pomodoro timer with to-do list",
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Pomodoro Timer"
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"  // Magic line that replaces new tabs
   },
-  "permissions": ["alarms", "storage", "notifications"],
-  "background": {
-    "service_worker": "background.js"
+  "permissions": ["storage"],
+  "icons": {
+    "128": "icon128.png"
   }
 }
