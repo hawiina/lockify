@@ -140,14 +140,12 @@ updateTime();
 setInterval(updateTime, 1000);
 
 const backgrounds = [
-  "url('snoopydesk.jpg')",
-  "url('jiji1.jpg')",
-  "url('miffy1.jpg')",
-  "url('snoopydesk1.jpg')",
-  "url('snoopydesk2.jpg')",
-  // For local images (place in extension folder):
-  // "url('bg1.jpg')", 
-  // "url('bg2.jpg')"
+  "url('./images/snoopydesk.jpg')",  // Example if images are in /images folder
+  "url('./images/jiji1.jpg')",
+  "url('./images/miffy1.jpg')",
+  "url('./images/snoopydesk1.jpg')",
+  "url('./images/snoopydesk2.jpg')",
+  // ... other images
 ];
 function setRandomBackground() {
   const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
