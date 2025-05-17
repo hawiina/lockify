@@ -237,3 +237,35 @@ function makeContainerDraggable() {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', makeContainerDraggable);
+
+// Search engine functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const searchEngine = document.querySelector('.search-engine');
+  
+  // Update search action based on selected engine
+  searchEngine.addEventListener('change', function() {
+    switch(this.value) {
+      case 'bing':
+        searchForm.action = 'https://www.bing.com/search';
+        break;
+      case 'duckduckgo':
+        searchForm.action = 'https://duckduckgo.com/';
+        break;
+      case 'youtube':
+        searchForm.action = 'https://www.youtube.com/results';
+        searchForm.setAttribute('name', 'search_query');
+        break;
+      case 'wikipedia':
+        searchForm.action = 'https://en.wikipedia.org/w/index.php';
+        searchForm.setAttribute('name', 'search');
+        break;
+      default: // Google
+        searchForm.action = 'https://www.google.com/search';
+        searchForm.setAttribute('name', 'q');
+    }
+  });
+  
+  // Set default to Google on page load
+  searchEngine.value = 'google';
+});
