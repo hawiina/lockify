@@ -1,6 +1,6 @@
 body {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  font-family: 'Short Stack', cursive;
+  font-family: 'Alice', serif;
   height: 100vh;
   margin: 0;
   display: flex;
@@ -39,21 +39,42 @@ body {
   border: 2px solid #e0e0e0;
   border-radius: 20px;
   font-family: inherit;
+  outline: none;
+  transition: all 0.3s;
 }
 
-/* Pastel buttons */
+#todo-input:focus {
+  border-color: #a2d2ff;
+}
+
+/* Cute soft buttons */
 .pastel-btn {
   background: #a2d2ff;
   color: #5a5a5a;
   border: none;
-  padding: 8px 15px;
+  padding: 10px 20px;
   margin: 5px;
-  border-radius: 20px;
+  border-radius: 50px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Alice', serif;
   font-weight: bold;
   transition: all 0.3s;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pastel-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
 }
 
 .pastel-btn:hover {
@@ -61,10 +82,26 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-#add { background: #ffafcc; }
-#start { background: #bde0fe; }
-#pause { background: #cdb4db; }
-#reset { background: #ffd6a5; }
+.pastel-btn:hover::after {
+  transform: translateX(0);
+}
+
+#add { 
+  background: #ffafcc;
+  padding: 10px 25px;
+}
+#start { 
+  background: #bde0fe;
+  padding: 10px 25px;
+}
+#pause { 
+  background: #cdb4db;
+  padding: 10px 25px;
+}
+#reset { 
+  background: #ffd6a5;
+  padding: 10px 25px;
+}
 
 /* Task items */
 .task-item {
@@ -75,6 +112,12 @@ body {
   display: flex;
   align-items: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 .task-checkbox {
@@ -85,10 +128,12 @@ body {
   border-radius: 50%;
   cursor: pointer;
   margin-right: 10px;
+  transition: all 0.2s;
 }
 
 .task-checkbox:checked {
   background: #a2d2ff;
+  border-color: #a2d2ff;
 }
 
 .task-text {
