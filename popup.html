@@ -1,1 +1,42 @@
-hi
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pomodoro Productivity</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="background-selector">
+      <select id="bg-select">
+        <option value="bg1">Nature</option>
+        <option value="bg2">Minimal</option>
+      </select>
+    </div>
+    
+    <div class="timer-container">
+      <div id="timer">25:00</div>
+      <div class="timer-controls">
+        <button id="start-btn">Start</button>
+        <button id="pause-btn">Pause</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+      <div class="mode-selector">
+        <button class="mode-btn active" data-minutes="25">Pomodoro</button>
+        <button class="mode-btn" data-minutes="5">Short Break</button>
+        <button class="mode-btn" data-minutes="15">Long Break</button>
+      </div>
+    </div>
+    
+    <div class="todo-container">
+      <h3>To-Do List</h3>
+      <div class="todo-input">
+        <input type="text" id="todo-input" placeholder="Add a task...">
+        <button id="add-btn">Add</button>
+      </div>
+      <ul id="todo-list"></ul>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
