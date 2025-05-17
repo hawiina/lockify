@@ -164,3 +164,37 @@ body {
   background: #ff6b6b !important;
   color: white !important;
 }
+/* General button style */
+button, .task-actions button {
+  border: none !important;
+  border-radius: 50px !important;
+  background: #ffb7c5 !important; /* Pastel pink */
+  color: white !important;
+  padding: 10px 20px !important; /* Increased from 8px 15px */
+  margin: 8px !important;        /* More spacing */
+  cursor: pointer;
+  font-family: 'Alice', serif !important;
+  font-size: 1.1rem !important;  /* Slightly larger text */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  transition: all 0.3s !important;
+  min-width: 80px;               /* Ensures consistent sizing */
+  display: inline-flex;          /* Better icon alignment */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;                     /* Space between icon/text */
+}
+
+/* Specific button types */
+.delete-btn { 
+  background: #ff6b6b !important;
+  padding: 10px 22px !important; /* Slightly wider */
+}
+.edit-btn { 
+  background: #a2d2ff !important;
+}
+
+/* Hover effects */
+button:hover {
+  transform: translateY(-2px) scale(1.02); /* Subtle grow effect */
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15) !important;
+}
