@@ -176,52 +176,64 @@ function setRandomBackground() {
 
 // Run on page load
 window.onload = setRandomBackground;
-// Add this at the end of your existing code
 
-// Make the widget draggable
-const widget = document.querySelector('.widget'); // Make sure your widget has this class
-
-let isDragging = false;
-let offsetX, offsetY;
-
-// If the widget element doesn't exist, we'll use the timer display container
-const draggableElement = widget || document.querySelector('.timer-container'); 
-
-if (draggableElement) {
-  draggableElement.style.position = 'absolute';
-  draggableElement.style.cursor = 'move';
+// Make Pomodoro Timer Draggable
+function makeDraggable() {
+  const pomodoro = document.querySelector('.pomodoro');
   
-  draggableElement.addEventListener('mousedown', (e) => {
+  if (!pomodoro) return;
+
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  // Load saved position if exists
+  const savedPosition = localStorage.getItem('pomodoroPosition');
+  if (savedPosition) {
+    const { left, top } = JSON.parse(savedPosition);
+    pomodoro.style.left = left;
+    pomodoro.style.top = top;
+    pomodoro.style.transform = 'none'; // Remove centering transform
+  }
+
+  pomodoro.addEventListener('mousedown', (e) => {
+    // Only respond to left mouse button
+    if (e.button !== 0) return;
+    
     isDragging = true;
-    offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
-    offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
-    draggableElement.style.zIndex = 1000; // Bring to front when dragging
+    const rect = pomodoro.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    
+    pomodoro.style.zIndex = '1000';
+    pomodoro.style.transition = 'none'; // Disable transitions during drag
+    e.preventDefault(); // Prevent text selection
   });
-  
+
   document.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     
     const x = e.clientX - offsetX;
     const y = e.clientY - offsetY;
     
-    draggableElement.style.left = `${x}px`;
-    draggableElement.style.top = `${y}px`;
+    pomodoro.style.left = `${x}px`;
+    pomodoro.style.top = `${y}px`;
+    pomodoro.style.transform = 'none'; // Remove centering transform
   });
-  
+
   document.addEventListener('mouseup', () => {
+    if (!isDragging) return;
     isDragging = false;
+    
     // Save position to localStorage
-    localStorage.setItem('widgetPosition', JSON.stringify({
-      left: draggableElement.style.left,
-      top: draggableElement.style.top
+    localStorage.setItem('pomodoroPosition', JSON.stringify({
+      left: pomodoro.style.left,
+      top: pomodoro.style.top
     }));
+    
+    pomodoro.style.zIndex = '10';
+    pomodoro.style.transition = 'all 0.3s ease'; // Re-enable transitions
   });
-  
-  // Load saved position if exists
-  const savedPosition = localStorage.getItem('widgetPosition');
-  if (savedPosition) {
-    const { left, top } = JSON.parse(savedPosition);
-    draggableElement.style.left = left;
-    draggableElement.style.top = top;
-  }
 }
+
+// Call this after DOM is loaded
+document.addEventListener('DOMContentLoaded', makeDraggable);
