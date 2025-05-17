@@ -176,3 +176,52 @@ function setRandomBackground() {
 
 // Run on page load
 window.onload = setRandomBackground;
+// Add this at the end of your existing code
+
+// Make the widget draggable
+const widget = document.querySelector('.widget'); // Make sure your widget has this class
+
+let isDragging = false;
+let offsetX, offsetY;
+
+// If the widget element doesn't exist, we'll use the timer display container
+const draggableElement = widget || document.querySelector('.timer-container'); 
+
+if (draggableElement) {
+  draggableElement.style.position = 'absolute';
+  draggableElement.style.cursor = 'move';
+  
+  draggableElement.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
+    offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
+    draggableElement.style.zIndex = 1000; // Bring to front when dragging
+  });
+  
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+    
+    draggableElement.style.left = `${x}px`;
+    draggableElement.style.top = `${y}px`;
+  });
+  
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    // Save position to localStorage
+    localStorage.setItem('widgetPosition', JSON.stringify({
+      left: draggableElement.style.left,
+      top: draggableElement.style.top
+    }));
+  });
+  
+  // Load saved position if exists
+  const savedPosition = localStorage.getItem('widgetPosition');
+  if (savedPosition) {
+    const { left, top } = JSON.parse(savedPosition);
+    draggableElement.style.left = left;
+    draggableElement.style.top = top;
+  }
+}

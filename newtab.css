@@ -220,3 +220,16 @@ button:hover {
   border-radius: 20px;
   padding: 30px;
 }
+.widget, .timer-container {
+  /* Ensure it has position relative or absolute */
+  position: absolute !important;
+  /* Initial position */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* Make sure it's above other elements when dragging */
+  z-index: 10;
+  /* Prevent text selection during drag */
+  user-select: none;
+  -webkit-user-select: none;
+}
