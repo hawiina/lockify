@@ -170,7 +170,6 @@ const backgrounds = [
   "url('./images/sponge1.jpg')",
   "url('./images/sponge2.jpg')",
   "url('./images/sponge3.jpg')",
-  "url('./images/sponge4.jpg')",
   "url('./images/sponge5.jpg')",
   "url('./images/adventure.jpg')",
   "url('./images/adventure1.jpg')",
