@@ -1,6 +1,8 @@
 // State
-let timeLeft = 25 * 60;
+let timeLeft = 25 * 60; // 25 minutes work by default
 let timer;
+let isWorkSession = true;
+let sessionCount = 0;
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const pastelColors = ['#a2d2ff', '#ffafcc', '#bde0fe', '#cdb4db', '#ffd6a5'];
 
@@ -13,29 +15,57 @@ const todoInput = document.getElementById('todo-input');
 const addBtn = document.getElementById('add');
 const todosContainer = document.getElementById('todos');
 
-// Timer
+// Pomodoro Timer
 function updateTimer() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
   timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  document.title = `${minutes}:${seconds.toString().padStart(2, '0')} - ${isWorkSession ? 'Work' : 'Break'}`;
+  
+  // Visual feedback
+  timerDisplay.style.color = isWorkSession ? '#ff6b6b' : '#51cf66';
 }
 
-startBtn.addEventListener('click', () => {
-  if (timer) clearInterval(timer);
+function startTimer() {
+  clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
     updateTimer();
+    
     if (timeLeft <= 0) {
       clearInterval(timer);
-      alert("Time's up! 🎉");
+      handleSessionEnd();
     }
   }, 1000);
-});
+}
 
+function handleSessionEnd() {
+  const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+  audio.play();
+  
+  if (isWorkSession) {
+    sessionCount++;
+    const isLongBreak = sessionCount % 4 === 0;
+    timeLeft = isLongBreak ? 15 * 60 : 5 * 60;
+    alert(isLongBreak ? 
+      "Great work! Take a 15 minute break. 🎉" : 
+      "Time for a 5 minute break! ☕");
+  } else {
+    timeLeft = 25 * 60;
+    alert("Break's over! Ready to focus? 🚀");
+  }
+  
+  isWorkSession = !isWorkSession;
+  updateTimer();
+  startTimer(); // Auto-start next session
+}
+
+// Timer Controls
+startBtn.addEventListener('click', startTimer);
 pauseBtn.addEventListener('click', () => clearInterval(timer));
 resetBtn.addEventListener('click', () => {
   clearInterval(timer);
-  timeLeft = 25 * 60;
+  timeLeft = isWorkSession ? 25 * 60 : 5 * 60;
   updateTimer();
 });
 
@@ -57,7 +87,7 @@ function renderTodos() {
     </div>
   `).join('');
 
-  // Add event listeners
+  // Event listeners for todos
   document.querySelectorAll('.task-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', (e) => {
       const taskId = e.target.closest('.task-item').dataset.id;
@@ -70,16 +100,14 @@ function renderTodos() {
 
   document.querySelectorAll('.notes-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const notes = e.target.closest('.task-item').querySelector('.task-notes');
-      notes.classList.toggle('active');
+      e.target.closest('.task-item').querySelector('.task-notes').classList.toggle('active');
     });
   });
 
   document.querySelectorAll('.task-notes').forEach(notes => {
     notes.addEventListener('blur', (e) => {
       const taskId = e.target.closest('.task-item').dataset.id;
-      const task = todos.find(t => t.id == taskId);
-      task.notes = e.target.value;
+      todos.find(t => t.id == taskId).notes = e.target.value;
       saveTodos();
     });
   });
@@ -111,36 +139,21 @@ function saveTodos() {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-// Initialize
-updateTimer();
-renderTodos();
+// Time and Date
 function updateTime() {
   const now = new Date();
-  
-  // Time formatting (e.g., "2:45 PM")
-  const timeStr = now.toLocaleTimeString('en-US', { 
-    hour: 'numeric', 
-    minute: '2-digit',
-    hour12: true 
+  document.getElementById('time').textContent = now.toLocaleTimeString('en-US', { 
+    hour: 'numeric', minute: '2-digit', hour12: true 
   });
-  
-  // Date formatting (e.g., "Tuesday, May 21")
-  const dateStr = now.toLocaleDateString('en-US', { 
-    weekday: 'long', 
-    month: 'long', 
-    day: 'numeric' 
+  document.getElementById('date').textContent = now.toLocaleDateString('en-US', { 
+    weekday: 'long', month: 'long', day: 'numeric' 
   });
-  
-  document.getElementById('time').textContent = timeStr;
-  document.getElementById('date').textContent = dateStr;
 }
 
-// Update every second
-updateTime();
-setInterval(updateTime, 1000);
-
+// Background Images
 const backgrounds = [
-  "url('./images/snoopydesk.jpg')",  // Example if images are in /images folder
+
+ "url('./images/snoopydesk.jpg')",  // Example if images are in /images folder
   "url('./images/jiji1.jpg')",
   "url('./images/miffy1.jpg')",
   "url('./images/snoopydesk1.jpg')",
@@ -163,30 +176,25 @@ const backgrounds = [
   "url('./images/adventure3.jpg')",
   "url('./images/adventure4.jpg')",
   "url('./images/adventure5.jpg')",
-  // ... other images
 ];
+
 function setRandomBackground() {
   const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
   document.body.style.backgroundImage = randomBg;
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundPosition = "center";
-  document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.transition = "background-image 0.5s ease";
 }
 
-// Run on page load
-window.onload = setRandomBackground;
-
-// Make the entire container draggable
+// Draggable Container
 function makeContainerDraggable() {
   const container = document.querySelector('.container');
-  
   if (!container) return;
 
   let isDragging = false;
   let offsetX, offsetY;
 
-  // Load saved position if exists
+  // Load saved position
   const savedPosition = localStorage.getItem('widgetPosition');
   if (savedPosition) {
     const { left, top } = JSON.parse(savedPosition);
@@ -196,67 +204,47 @@ function makeContainerDraggable() {
   }
 
   container.addEventListener('mousedown', (e) => {
-    // Only respond to left mouse button on the container background
     if (e.button !== 0 || e.target.closest('button, input, #todos')) return;
-    
     isDragging = true;
     const rect = container.getBoundingClientRect();
     offsetX = e.clientX - rect.left;
     offsetY = e.clientY - rect.top;
-    
-    container.classList.add('dragging');
-    container.style.zIndex = '1000';
+    container.style.cursor = 'grabbing';
     e.preventDefault();
   });
 
   document.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
-    
-    const x = e.clientX - offsetX;
-    const y = e.clientY - offsetY;
-    
-    container.style.left = `${x}px`;
-    container.style.top = `${y}px`;
+    container.style.left = `${e.clientX - offsetX}px`;
+    container.style.top = `${e.clientY - offsetY}px`;
     container.style.transform = 'none';
   });
 
   document.addEventListener('mouseup', () => {
     if (!isDragging) return;
     isDragging = false;
-    
-    // Save position to localStorage
+    container.style.cursor = 'move';
     localStorage.setItem('widgetPosition', JSON.stringify({
       left: container.style.left,
       top: container.style.top
     }));
-    
-    container.classList.remove('dragging');
-    container.style.zIndex = '10';
   });
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', makeContainerDraggable);
-
-// Search engine functionality
-document.addEventListener('DOMContentLoaded', function() {
+// Search Functionality
+function setupSearch() {
   const searchForm = document.getElementById('search-form');
   const searchEngine = document.querySelector('.search-engine');
   
-  // Update search action based on selected engine
-  searchEngine.addEventListener('change', function() {
+  searchEngine?.addEventListener('change', function() {
     switch(this.value) {
-      case 'bing':
-        searchForm.action = 'https://www.bing.com/search';
-        break;
-      case 'duckduckgo':
-        searchForm.action = 'https://duckduckgo.com/';
-        break;
-      case 'youtube':
+      case 'bing': searchForm.action = 'https://www.bing.com/search'; break;
+      case 'duckduckgo': searchForm.action = 'https://duckduckgo.com/'; break;
+      case 'youtube': 
         searchForm.action = 'https://www.youtube.com/results';
         searchForm.setAttribute('name', 'search_query');
         break;
-      case 'wikipedia':
+      case 'wikipedia': 
         searchForm.action = 'https://en.wikipedia.org/w/index.php';
         searchForm.setAttribute('name', 'search');
         break;
@@ -265,7 +253,15 @@ document.addEventListener('DOMContentLoaded', function() {
         searchForm.setAttribute('name', 'q');
     }
   });
-  
-  // Set default to Google on page load
-  searchEngine.value = 'google';
+}
+
+// Initialize Everything
+document.addEventListener('DOMContentLoaded', () => {
+  updateTimer();
+  renderTodos();
+  updateTime();
+  setInterval(updateTime, 1000);
+  setRandomBackground();
+  makeContainerDraggable();
+  setupSearch();
 });

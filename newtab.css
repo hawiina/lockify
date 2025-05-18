@@ -22,6 +22,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  align-items: center;
 }
 
 .pomodoro {
@@ -61,7 +62,7 @@ body {
 }
 
 #add {
-  width: 100%;
+  width: 50%;
   padding: 10px;
   background-color: #a2d2ff;
   border: none;
@@ -289,60 +290,66 @@ button:hover {
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  width: 70%; /* Slightly wider for better input space */
-  max-width: 600px; /* Balanced max width */
+  width: 70%;
+  max-width: 600px;
 }
 
 .search-wrapper {
   display: flex;
   width: 100%;
-  height: 42px; /* Slightly taller for better proportions */
+  height: 42px;
+  background: white;
+  border-radius: 21px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden; /* Keeps everything contained */
 }
 
 .search-engine {
-  width: 130px; /* Enough for "DuckDuckGo" */
+  width: 130px;
   padding: 0 15px;
-  border: 2px solid #cdb4db;
-  border-radius: 21px 0 0 21px;
+  border: none;
+  border-right: 1px solid #e0e0e0; /* Subtle divider */
   font-size: 14px;
-  background-color: #f8f9fa; /* Light gray like Google's */
-  cursor: pointer;
+  background-color: transparent;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 14px;
+  cursor: pointer;
 }
 
 .search-input {
-  flex: 1; /* Takes remaining space */
+  flex: 1;
   padding: 0 15px;
   font-size: 14px;
-  border: 2px solid #cdb4db;
-  border-left: none;
-  border-right: none;
+  border: none;
   outline: none;
 }
 
 .search-btn {
-  width: 50px; /* Matches dropdown height */
-  background-color: #f8f9fa; /* Same as dropdown */
-  border: 2px solid #cdb4db;
-  border-radius: 0 21px 21px 0;
+  width: 50px;
+  background-color: #a2d2ff; /* Matching your pastel theme */
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .search-btn svg {
   width: 16px;
   height: 16px;
-  stroke: #5f6368; /* Google's icon color */
+  stroke: white; /* Contrasting icon */
 }
 
 /* Hover states */
-.search-engine:hover,
 .search-btn:hover {
-  background-color: #e9ecef;
+  background-color: #8fbde8; /* Slightly darker pastel */
+}
+
+/* Focus states */
+.search-input:focus {
+  background-color: #f8f9fa;
 }
