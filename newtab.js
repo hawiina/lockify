@@ -170,12 +170,24 @@ const backgrounds = [
   "url('./images/sponge1.jpg')",
   "url('./images/sponge2.jpg')",
   "url('./images/sponge3.jpg')",
+  "url('./images/sponge4.jpg')",
+  "url('./images/sponge5.jpg')",
   "url('./images/adventure.jpg')",
   "url('./images/adventure1.jpg')",
   "url('./images/adventure2.jpg')",
   "url('./images/adventure3.jpg')",
   "url('./images/adventure4.jpg')",
   "url('./images/adventure5.jpg')",
+  "url('./images/adventure6.jpg')",
+  "url('./images/adventure7.jpg')",
+  "url('./images/adventure8.jpg')",
+  "url('./images/adventure9.jpg')",
+  "url('./images/adventure10.jpg')",
+  "url('./images/adventure11.jpg')",
+  "url('./images/adventure12.jpg')",
+  "url('./images/adventure13.jpg')",
+  "url('./images/adventure14.jpg')",
+  "url('./images/totoro1.jpg')",
 ];
 
 function setRandomBackground() {
@@ -409,14 +421,6 @@ const quotes = [
   },
   {
     text: "You don't need a license to drive a sandwich.",
-    source: "SpongeBob SquarePants"
-  },
-  {
-    text: "Too much of anything is bad, but too much of good seafood is... just right.",
-    source: "Mr. Krabs"
-  },
-  {
-    text: "The Krusty Krab pizza is the pizza for you and me!",
     source: "SpongeBob SquarePants"
   },
   {
