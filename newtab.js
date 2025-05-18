@@ -48,11 +48,11 @@ function handleSessionEnd() {
     const isLongBreak = sessionCount % 4 === 0;
     timeLeft = isLongBreak ? 15 * 60 : 5 * 60;
     alert(isLongBreak ? 
-      "Great work! Take a 15 minute break. 🎉" : 
-      "Time for a 5 minute break! ☕");
+      "Great work! Take a 15 minute break." : 
+      "Time for a 5 minute break! ");
   } else {
     timeLeft = 25 * 60;
-    alert("Break's over! Ready to focus? 🚀");
+    alert("Break's over! Ready to focus?");
   }
   
   isWorkSession = !isWorkSession;
@@ -163,6 +163,7 @@ const backgrounds = [
   "url('./images/snoopydesk5.jpg')",
   "url('./images/snoopydesk6.jpg')",
   "url('./images/snoopydesk7.jpg')",
+  "url('./images/miffy.jpg')",
   "url('./images/miffy2.jpg')",
   "url('./images/miffy3.jpg')",
   "url('./images/miffy4.jpg')",

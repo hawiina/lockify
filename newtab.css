@@ -23,6 +23,7 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   align-items: center;
+  opacity: 100;
 }
 
 .pomodoro {
@@ -329,7 +330,7 @@ button:hover {
 
 .search-btn {
   width: 50px;
-  background-color: #a2d2ff; /* Matching your pastel theme */
+  background-color: #a2d2ff; /* Matching pastel theme */
   border: none;
   display: flex;
   align-items: center;
@@ -560,4 +561,49 @@ button:hover {
 @keyframes bounce {
   from { transform: translateY(0); }
   to { transform: translateY(-5px); }
+}
+/* Custom Cursor for Entire Extension */
+body, html, .container {
+  cursor: url('images/pixelkey.jpg'), auto;
+}
+
+/* Pointer State for Clickable Elements */
+button, a, input, [onclick], .task-item, .notes-btn {
+  cursor: url('images/key-cursor-pointer.png'), pointer;
+}
+/* Pixel Font Face */
+@font-face {
+  font-family: 'PixelTimer';
+  src: url('/fonts/VT323-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* Timer Styling */
+#timer {
+  font-family: 'PixelTimer', monospace;
+  font-size: 5rem;
+  color: #ff6b6b;
+  text-shadow: 
+    2px 2px 0 #fff,
+    4px 4px 0 rgba(255,107,107,0.4);
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+/* Current Time Styling */
+#time {
+  font-family: 'PixelTimer', monospace;
+  font-size: 4rem;
+  color: #a2d2ff;
+  text-shadow: 
+    2px 2px 0 #fff,
+    4px 4px 0 rgba(162,210,255,0.4);
+}
+
+#date {
+  font-family: 'PixelTimer', monospace;
+  font-size: 1rem;
+  color: #cdb4db;
+  text-shadow: 
+    1px 1px 0 #fff;
 }
