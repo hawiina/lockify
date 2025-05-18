@@ -505,3 +505,59 @@ button:hover {
 }
 
 
+/* Cute GitHub Ribbon */
+.github-ribbon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.github-icon {
+  width: 32px;
+  height: 32px;
+  fill: #ffafcc;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.github-ribbon:hover .github-icon {
+  fill: #cdb4db;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  color: #5a5a5a;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-family: 'Alice', serif;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.github-ribbon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  right: 45px;
+}
+
+/* Animation */
+.github-ribbon {
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
