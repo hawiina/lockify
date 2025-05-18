@@ -4,8 +4,8 @@ Cute Productivity Extension
 
 Try out my cutesy productivity extension which features a pomodoro timer, to-do list, motivational quotes, and more!! Everything comes in a pretty pastel package!
 
-<img width="923" alt="image" src="https://github.com/user-attachments/assets/1b083cf2-4575-4f9f-9ca2-05a83337b17a" />
-
+<img width="924" alt="image" src="https://github.com/user-attachments/assets/567d6484-9934-42ca-b590-6717f9be9c0f" />
+<img width="925" alt="image" src="https://github.com/user-attachments/assets/d8027e9b-9eda-4902-b263-ce167efaadeb" />
 
 ✨ Features
 
