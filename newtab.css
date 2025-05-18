@@ -12,7 +12,7 @@ body {
   position: absolute;
   cursor: move;
   user-select: none;
-  width: 350px; /* Fixed width */
+  width: 400px; /* Fixed width */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -23,6 +23,9 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   align-items: center;
+  background: rgba(255, 255, 255, 0.4) !important; /* Adjust the 0.7 for transparency */
+  backdrop-filter: blur(8px); /* Creates frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional subtle border */
 }
 
 .pomodoro {
@@ -36,40 +39,37 @@ body {
   color: #5a5a5a;
 }
 
-/* Todo list specific fixes */
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  width: 100%;
+}
+
+/* Add this new rule */
+.todo-input-container {
+  display: flex;
+  gap: 8px; /* Space between input and button */
+  margin-bottom: 10px;
   width: 100%;
 }
 
 #todo-input {
-  width: calc(100% - 22px); /* Account for padding */
+  flex-grow: 1; /* Takes remaining space */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-#todo-input {
-  width: 70%;
-  padding: 10px;
-  border: 2px solid #e0e0e0;
-  border-radius: 20px;
-  font-family: inherit;
-  outline: none;
-  transition: all 0.3s;
+  width: 60%;
 }
 
 #add {
-  width: 50%;
-  padding: 10px;
+  padding: 10px; /* Wider click area */
+  white-space: nowrap; /* Prevents text wrapping */
   background-color: #a2d2ff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 15%;
 }
-
 #todo-input:focus {
   border-color: #a2d2ff;
 }
@@ -352,4 +352,18 @@ button:hover {
 /* Focus states */
 .search-input:focus {
   background-color: #f8f9fa;
+}
+.current-time {
+  margin: 20px 0; /* Adds equal space above and below */
+  text-align: center;
+  width: 100%; /* Ensures full width for proper centering */
+}
+
+/* If you want more specific control */
+.pomodoro {
+  margin-bottom: 15px; /* Space between pomodoro and time */
+}
+
+.todo-list {
+  margin-top: 15px; /* Space between time and todo */
 }
