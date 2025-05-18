@@ -12,7 +12,7 @@ body {
   position: absolute;
   cursor: move;
   user-select: none;
-  width: 350px; /* Fixed width */
+  width: 400px; /* Fixed width */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -62,7 +62,7 @@ body {
 }
 
 #add {
-  width: 50%;
+  width: 30%;
   padding: 10px;
   background-color: #a2d2ff;
   border: none;
@@ -352,4 +352,87 @@ button:hover {
 /* Focus states */
 .search-input:focus {
   background-color: #f8f9fa;
+}
+/* Todo List Container */
+.todo-list {
+  width: 100%;
+}
+
+/* Input + Button Group */
+.input-group {
+  display: flex;
+  align-items: center; /* Vertically centers them */
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#todo-input {
+  flex: 1; /* Takes up remaining space */
+  padding: 8px 12px;
+  border: 2px solid #cdb4db;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  height: 40px; /* Fixed height */
+  box-sizing: border-box;
+}
+
+#add {
+  height: 40px; /* Same as input */
+  padding: 0 15px;
+  background-color: #cdb4db;
+  color: white;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+#add:hover {
+  background-color: #b8a2cb;
+}
+.input-group {
+  gap: 5px; /* Adds small space between */
+}
+
+#todo-input {
+  border-radius: 20px; /* Full radius on input */
+}
+
+#add {
+  border-radius: 20px; /* Full radius on button */
+}
+/* Current Time Styling */
+.current-time {
+  text-align: center;
+  margin: 25px 0; /* Equal space above and below */
+  width: 100%;
+}
+
+#time {
+  font-size: 3rem; /* Larger time display */
+  margin-bottom: 5px;
+}
+
+#date {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Adjust container layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+/* Pomodoro timer spacing */
+.pomodoro {
+  margin-bottom: 10px; /* Space between timer and time */
+}
+
+/* Todo list spacing */
+.todo-list {
+  margin-top: 15px; /* Space between time and todo */
 }
