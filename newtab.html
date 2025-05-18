@@ -5,6 +5,27 @@
   <link rel="stylesheet" href="newtab.css">
 </head>
 <body>
+  <!-- Search Bar (Top Center) -->
+  <div class="search-container">
+    <form action="https://www.google.com/search" method="GET" target="_blank" id="search-form">
+      <div class="search-wrapper">
+        <select class="search-engine">
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+          <option value="duckduckgo">DuckDuckGo</option>
+        </select>
+        <input type="text" name="q" placeholder="Search the web..." class="search-input">
+        <button type="submit" class="search-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Main Container -->
   <div class="container">
     <!-- Pomodoro Timer -->
     <div class="pomodoro">
@@ -15,37 +36,31 @@
         <button id="reset">Reset</button>
       </div>
     </div>
-<div class="current-time">
-  <div id="time">12:34 PM</div>
-  <div id="date">Monday, January 1</div>
-</div>
-    <!-- Todo List -->
-<div class="todo-list">
-  <div class="input-group">
-    <input type="text" id="todo-input" placeholder="Add a task...">
-    <button id="add">Add</button>
-  </div>
-  <div id="todos"></div>
-</div>
-  </div>
-<div class="search-container">
-  <form action="https://www.google.com/search" method="GET" target="_blank" id="search-form">
-    <div class="search-wrapper">
-      <select class="search-engine">
-        <option value="google">Google</option>
-        <option value="bing">Bing</option>
-        <option value="duckduckgo">DuckDuckGo</option>
-      </select>
-      <input type="text" name="q" placeholder="Search the web..." class="search-input">
-      <button type="submit" class="search-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </button>
+
+    <!-- Current Time -->
+    <div class="current-time">
+      <div id="time">12:34 PM</div>
+      <div id="date">Monday, January 1</div>
     </div>
-  </form>
-</div>
+
+    <!-- Todo List -->
+    <div class="todo-list">
+      <div class="input-group">
+        <input type="text" id="todo-input" placeholder="Add a task...">
+        <button id="add">Add</button>
+      </div>
+      <div id="todos"></div>
+    </div>
+  </div>
+
+  <!-- Quote Widget -->
+  <div class="widget quote-widget">
+    <div class="quote-content">
+      <p class="quote-text"></p>
+      <p class="quote-source"></p>
+    </div>
+  </div>
+
   <script src="newtab.js"></script>
 </body>
 </html>

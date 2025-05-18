@@ -436,3 +436,72 @@ button:hover {
 .todo-list {
   margin-top: 15px; /* Space between time and todo */
 }
+/* Quote Widget */
+.quote-widget {
+  position: absolute;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Alice', serif;
+  cursor: move;
+  z-index: 5;
+  right: 50px;
+  top: 150px;
+  opacity: 70;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: #5a5a5a;
+  font-style: italic;
+}
+
+.quote-source {
+  font-size: 0.9rem;
+  text-align: right;
+  color: #888;
+}
+
+/* Make it cute! */
+.quote-content {
+  position: relative;
+  padding: 20px;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: #5a5a5a;
+  font-style: italic;
+  quotes: "“" "”"; /* Proper HTML quotes */
+}
+
+.quote-text {
+  content: open-quote;
+  color: #ffafcc;
+}
+
+.quote-text {
+  content: close-quote;
+  color: #ffafcc;
+}
+
+/* Manual quotes in HTML */
+.quote-text {
+  content: '"' !important;
+  color: #ffafcc;
+  display: inline !important;
+}
+.quote-text {
+  content: '"' !important;
+  color: #ffafcc;
+  display: inline !important;
+}
+
+
