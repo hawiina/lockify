@@ -12,7 +12,7 @@ body {
   position: absolute;
   cursor: move;
   user-select: none;
-  width: 450px; /* Fixed width */
+  width: 425px; /* Fixed width */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
