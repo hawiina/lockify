@@ -324,8 +324,8 @@ const quotes = [
     source: "Jake (Adventure Time)"
   },
   {
-    text: "Making people happy is the best kind of wizardry.",
-    source: "Marceline (Adventure Time)"
+    text: "When bad things happen, I know you want to believe they are a joke, but sometimes life is scary and dark. That is why we must find the light.",
+    source: "BMO (Adventure Time)"
   },
   {
     text: "Homies help homies. Always.",
@@ -337,19 +337,19 @@ const quotes = [
   },
   {
     text: "Responsibility demands sacrifice.",
-    source: "Ice King (Adventure Time)"
-  },
-  {
-    text: "Being crazy isn't enough to make you special.",
     source: "Princess Bubblegum (Adventure Time)"
   },
   {
-    text: "People make mistakes. It's part of growing up.",
-    source: "Flame Princess (Adventure Time)"
+    text: "People get built different. We don't need to figure it out, we just need to respect it",
+    source: "Princess Bubblegum (Adventure Time)"
   },
   {
-    text: "This cosmic dance of bursting decadence and withheld permissions twists all our arms collectively.",
-    source: "Tree Trunks (Adventure Time)"
+    text: "Something weird might just be something familiar viewed from a different angle.",
+    source: "Marcy's Mom (Adventure Time)"
+  },
+  {
+    text: "I don't need to feel like I'm waiting to be noticed.",
+    source: "Fionna (Adventure Time)"
   },
 
   // STUDIO GHIBLI (10 quotes)
