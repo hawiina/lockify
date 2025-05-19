@@ -38,7 +38,7 @@ Try out my cutesy productivity extension which features a pomodoro timer, to-do 
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/your-username/pastel-productivity.git
+   git clone https://github.com/your-username/lockify.git
    ```
 2. For Chrome/Edge:
    - Go to `chrome://extensions`
