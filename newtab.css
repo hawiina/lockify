@@ -12,7 +12,7 @@ body {
   position: absolute;
   cursor: move;
   user-select: none;
-  width: 400px; /* Fixed width */
+  width: 450px; /* Fixed width */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -581,7 +581,7 @@ button, a, input, [onclick], .task-item, .notes-btn {
 /* Timer Styling */
 #timer {
   font-family: 'PixelTimer', monospace;
-  font-size: 5rem;
+  font-size: 6rem;
   color: #ff6b6b;
   text-shadow: 
     2px 2px 0 #fff,
@@ -593,7 +593,7 @@ button, a, input, [onclick], .task-item, .notes-btn {
 /* Current Time Styling */
 #time {
   font-family: 'PixelTimer', monospace;
-  font-size: 4rem;
+  font-size: 5rem;
   color: #a2d2ff;
   text-shadow: 
     2px 2px 0 #fff,
