@@ -370,10 +370,6 @@ const quotes = [
     source: "Moro (Princess Mononoke)"
   },
   {
-    text: "Even miracles take a little time.",
-    source: "Fairy Godmother (Cinderella)"
-  },
-  {
     text: "A heart's a heavy burden.",
     source: "Sophie (Howl's Moving Castle)"
   },
@@ -442,20 +438,12 @@ const quotes = [
     source: "Starfire (Teen Titans)"
   },
   {
-    text: "Masks protect us. They let us be who we want to be.",
-    source: "Robin (Teen Titans)"
-  },
-  {
     text: "The darkness doesn't frighten me. I was born in it.",
     source: "Raven (Teen Titans)"
   },
   {
     text: "Friendship isn't about who you've known the longest. It's about who walked into your life and said 'I'm here for you'.",
     source: "Beast Boy (Teen Titans)"
-  },
-  {
-    text: "You can't force friendship. It's like a garden. You have to nurture it.",
-    source: "Starfire (Teen Titans)"
   },
   {
     text: "Sometimes you have to lose yourself before you can find yourself.",
