@@ -186,7 +186,12 @@ const backgrounds = [
   "url('./images/adventure11.jpg')",
   "url('./images/adventure12.jpg')",
   "url('./images/adventure13.jpg')",
-  "url('./images/adventure14.jpg')",z
+  "url('./images/adventure14.jpg')",
+  "url('./images/adventure15.jpg')",
+  "url('./images/adventure16.jpg')",
+  "url('./images/adventure17.jpg')",
+  "url('./images/adventure18.jpg')",
+  "url('./images/adventure19.jpg')",
   "url('./images/totoro1.jpg')",
 ];
 

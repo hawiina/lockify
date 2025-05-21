@@ -607,19 +607,3 @@ button, a, input, [onclick], .task-item, .notes-btn {
   text-shadow: 
     1px 1px 0 #fff;
 }
-.cursor-toggle {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
-  z-index: 100;
-}
-
-.cursor-toggle label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}

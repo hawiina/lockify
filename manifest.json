@@ -8,9 +8,5 @@
   "permissions": ["storage"],
   "icons": {
     "128": "icon128.png"
-  },
-  "web_accessible_resources": [{
-    "resources": ["custom-cursor.png"],
-    "matches": ["<all_urls>"]
-  }]
+  }
 }
