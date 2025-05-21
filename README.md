@@ -4,8 +4,8 @@ Cute Productivity Extension
 
 Try out my cutesy productivity extension which features a pomodoro timer, to-do list, motivational quotes, and more!! Everything comes in a pretty pastel package!
 
-<img width="924" alt="image" src="https://github.com/user-attachments/assets/567d6484-9934-42ca-b590-6717f9be9c0f" />
-<img width="925" alt="image" src="https://github.com/user-attachments/assets/d8027e9b-9eda-4902-b263-ce167efaadeb" />
+<img width="949" alt="image" src="https://github.com/user-attachments/assets/78ecb18d-4f19-4e57-868b-059067d8eefc" />
+<img width="935" alt="image" src="https://github.com/user-attachments/assets/1bc443b6-95b6-470f-8109-d1cef1de9c3b" />
 
 ✨ Features
 
@@ -38,7 +38,7 @@ Try out my cutesy productivity extension which features a pomodoro timer, to-do 
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/your-username/pastel-productivity.git
+   git clone https://github.com/your-username/lockify.git
    ```
 2. For Chrome/Edge:
    - Go to `chrome://extensions`
